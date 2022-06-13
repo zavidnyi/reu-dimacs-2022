@@ -5,10 +5,12 @@
 section {
   background-color: #fff;
   color: #000;
-  background-image: url('mff_logo.png');
+  background-image: url('../theme/mff_logo.png');
   background-repeat: no-repeat;
   background-position: right 40px top 40px;
   background-size: 8%;
+  font-family: Inter,Helvetica Neue,Helvetica,sans-serif;
+  justify-content: start; 
 }
 
 section.lead {
@@ -29,15 +31,18 @@ section::after {
 section.invert {
   background-color: #630606;
   color: #fff;
-  background-image: url('mff_logo.png');
+  background-image: url('../theme/image.png');
 }
 
+
 section.lead.invert {
-  background-image: url('image.png');
+  background-image: url('../theme/image.png');
+  background-size: 50%;
 }
 
 section.invert h1,
 section.invert footer,
+section.invert em,
 section.invert::after {
   color: #fff;
 }

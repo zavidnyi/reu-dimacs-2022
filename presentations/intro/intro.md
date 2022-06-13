@@ -6,7 +6,8 @@ _class:
 footer: "06.06.2022 | GKR: Journey to NIZK | Ilia Zavidnyi"   
 _footer: ""                   
 paginate: true            
-_paginate: false        
+_paginate: false    
+math: katex    
 ---
 <style>
     section {
@@ -77,3 +78,5 @@ Making it non-interactive (without random oracles) on top of that is problematic
 
 
 ![bg ](doggo.jpg)
+
+---
