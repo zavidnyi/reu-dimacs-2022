@@ -17,6 +17,9 @@
     <meta name="twitter:description" content="Ilia Zavidnyi DIMACS REU research log">
     <meta name="twitter:url" content="http://reu.dimacs.rutgers.edu/~iz67/">
     <title>Zavidnyi Ilia DIMACS REU 2022</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"></script>
     <style>
         body {
             font-size: calc(100vw / 1920 * 10);
@@ -97,14 +100,11 @@
             line-height: 1.5em;
         }
 
-        img {
-            max-width: 60vw;
-        }
 
         figcaption {
             display: block;
             min-width: 0;
-            max-width: var(--document-column-size,auto);
+            max-width: 70vw;
             min-height: 1.5em;
             margin: .83333333em auto 0;
             font-family: Inter,Helvetica Neue,Helvetica,sans-serif;
@@ -117,6 +117,10 @@
             text-align: left;
             line-height: normal;
             white-space: pre-wrap;
+        }
+
+        figure > img { 
+            max-width: 70vw;
         }
         </style>
   </head>
@@ -141,7 +145,10 @@
 
     <h2>GKR: journey to NIZK</h2>
 
-    <p><strong>Description: </strong> TODO</p>
+    <p>
+        <strong>Description: </strong>A <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2008/01/GoldwasserKR08a.pdf" target="_blank" class="link , tlink">GKR protocol</a>, introduced in 2008 has polynomial prover complexity and quasi-linear verifier complexity.
+        We aim to make it non-interactive, zero-knowledge (NIZK for short) protocol, which can potentialy can yield and proof of work with thight prover complexity.
+    </p>
 
     <h2>Research Log</h2>
     <p>
@@ -155,15 +162,62 @@
     <p>
         <strong>Week 2: </strong>
         Svetlana Ivanova have joined my research project, so now I have a partner
-        I have spend all week understanding every detail about GKR protocol and preparing a presentation with explonation of it
+        I have spend all week understanding every detail about $\mathsf{GKR}$ protocol and preparing a presentation with explonation of it
         which we will present on 13.06.2022 to Mr.Ball
     </p>
 
     <figure>
-        <img src="gkr.jpg">
-        <figcaption>Birdview of GKR, thanks to Svetlana for writing it down</figcaption>
+        <img src="gkr.jpg" alt="gkr board"/>
+        <figcaption>Birdview of $\mathsf{GKR}$, thanks to Svetlana for writing it down</figcaption>
     </figure>
 
+    <p>
+        <strong>Week 3 : </strong>
+        Me and Svetlana have presented $\mathsf{GKR}$ protocol to Mr.Ball at NYU Counrant.
+        I think have done a good job of presenting a protocol, though in retrospect I think we mostly did it to understand $\mathsf{GKR}$ ourselves.
+        After that together with Mr.Ball we have decided to proceed with understanding how to make it non-interactive with correlation-intractable functions and we agreed on that.
+        However, I have outsourced that job to Svetlana and spend time on researching existing techniques on turning protocol zero-knowledge.
+        Once I've done that, I understood how to constuct CI hash function family we need, which I realised that it's going to be very hard if we make it zero-knowledge using existing techniques and we'll have to construct hash family we need completely from scratch.
+        Feeling sorta stuck 😥
+    </p>
+
+
+    <p>
+        <strong>Week 4 : </strong>
+        I have told everything I found out to Mr.Ball on Monday. 
+        We spent some time discussing where to go from here until I came up with idea that maybe 
+        we could use existing paper which makes protocol zero-knowledge, use their construction, and 
+        then instead of sending a transcript to a verifier in clear, prover will send a commitment to a transcript, which will not reveal any information (that verifier cant compute himself in $O(n\log\cdot n)$).
+        Mr.Ball told us that this indeed should work and it will accomplish a goal of our project.
+        I felt very excitied that we have stumbled on the solution as a result of me asking stupid questions.
+        I have not managed to write down the proof due to the lack of focus.
+        Have celebrated my 20th birthday on the weekend, feel excited and scared of what awaits me in the future...
+    </p>
+
+    <p>
+        <strong>Week 5 : </strong>
+        I realised that was not quite sure HOW to write down what we have talked about, so 
+        I've went to meet with my advisor to work out a details of what we are trying to achieve.
+        I have written down a sketch of the proof on Overleaf and realised that I have a gap in my knowledge of circuit construction.
+        So I've read this <a href="http://theory.cs.princeton.edu/complexity/book.pdf" target="_blank" class="link, tlink" >paper</a> (mainly proof of lemma 2.12)
+    </p>
+
+    <p>
+        <strong>Week 6 : </strong>
+        I've spent most of a week in Utah, where I mostly thought of the applications of my research,
+        Specifically, practicality of the application and potential extension to multi-prover systems.
+        On Thursday I've met with my advisor where we discusssed my thoughts and what potential topics we would be interested to research after the REU.
+        On friday got completely side-tracked into reading papers about circuits complexity, SAT NIZK, etc.
+        So I have not done anything research related 😅
+    </p>
+
+    <p>
+        <strong>Week 7 : </strong>
+        This week was a trip to Bell Labs, had to do some paper work, and other social events.
+        I started working on a final presentation which I will present on Thrusday next week.
+        I feel kinda scared and sad for the REU to end, but I'm really gratefull for this opportunity to explore cryptography, meet my amazing colleagues.
+        Special thanks to my advisor with whom I'll be working on my Bachelor thesis.
+    </p>
 
     <h2>Misc</h2>
     
@@ -173,5 +227,20 @@
     <p style="margin-bottom: 4rem;">
         This work was carried out while the author Ilia Zavidnyi was a participant in the 2022 DIMACS REU program, supported by CoSP, a project funded by European Union’s Horizon 2020 research and innovation programme, grant agreement No. 823748.
     </p>
+
+
+    <script>
+        renderMathInElement(
+            document.body,
+            {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\[", right: "\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false}
+                ]
+            }
+        );
+      </script>
   </body>
 </html>
