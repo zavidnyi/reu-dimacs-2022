@@ -9,7 +9,7 @@ section {
   background-repeat: no-repeat;
   background-position: right 40px top 40px;
   background-size: 8%;
-  font-family: Inter,Helvetica Neue,Helvetica,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   justify-content: start; 
 }
 
@@ -59,4 +59,24 @@ section::after {
 img[alt~="center"] {
   display: block;
   margin: 0 auto;
+}
+
+img[alt~="90p"] {
+  width: 90%;
+  height: auto;
+}
+
+img[alt~="85p"] {
+  width: 85%;
+  height: auto;
+}
+
+img[alt~="60p"] {
+  width: 60%;
+  height: auto;
+}
+
+img[alt~="40p"] {
+  width: 40%;
+  height: auto;
 }
